@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BGB — Qishloq xo‘jaligi ehtiyot qismlari</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg:#07100d;
+    --bg2:#0d1814;
+    --card:#111f19;
+    --green:#75d044;
+    --green2:#b4ff72;
+    --orange:#ff9d2e;
+    --white:#f5f7f4;
+    --muted:#98a79e;
+    --line:rgba(255,255,255,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(117,208,68,.10),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(255,157,46,.07),transparent 25%),
+        var(--bg);
+    color:var(--white);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+    width:8px;
+}
+::-webkit-scrollbar-track{
+    background:#07100d;
+}
+::-webkit-scrollbar-thumb{
+    background:var(--green);
+    border-radius:20px;
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(7,16,13,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    height:78px;
+    padding:0 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:white;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,var(--green),#31751f);
+    font-size:22px;
+    box-shadow:0 0 25px rgba(117,208,68,.25);
+}
+
+.logo-text{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:5px;
+}
+
+.logo-text span{
+    display:block;
+    font-size:8px;
+    letter-spacing:2px;
+    color:var(--muted);
+    margin-top:2px;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    color:#d8dfda;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--green2);
+}
+
+.nav-btn{
+    background:var(--green);
+    color:#091009;
+    padding:12px 19px;
+    border-radius:12px;
+    font-weight:800;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(117,208,68,.2);
+}
+
+/* HERO */
+.hero{
+    min-height:760px;
+    padding:150px 25px 80px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    border-radius:50%;
+    border:1px solid rgba(117,208,68,.08);
+    right:-170px;
+    top:100px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    border:1px solid rgba(117,208,68,.05);
+    right:-100px;
+    top:175px;
+}
+
+.hero-inner{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(117,208,68,.25);
+    background:rgba(117,208,68,.08);
+    padding:8px 13px;
+    border-radius:50px;
+    color:var(--green2);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.badge i{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--green);
+}
+
+.hero h1{
+    font-size:clamp(42px,5vw,72px);
+    line-height:1.02;
+    font-weight:900;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero p{
+    margin-top:25px;
+    color:var(--muted);
+    line-height:1.8;
+    max-width:570px;
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:32px;
+}
+
+.primary{
+    background:var(--green);
+    color:#091009;
+    padding:15px 23px;
+    border-radius:13px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:14px;
+    transition:.3s;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(117,208,68,.22);
+}
+
+.secondary{
+    border:1px solid var(--line);
+    color:white;
+    padding:15px 23px;
+    border-radius:13px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    transition:.3s;
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,.05);
+}
+
+/* HERO PRODUCT */
+.hero-product{
+    position:relative;
+    min-height:430px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.glow{
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(117,208,68,.12);
+    filter:blur(70px);
+    border-radius:50%;
+}
+
+.hero-box{
+    position:relative;
+    width:min(440px,100%);
+    padding:25px;
+    border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    backdrop-filter:blur(10px);
+    border-radius:30px;
+    transform:rotate(2deg);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.hero-box img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.floating{
+    position:absolute;
+    background:#15251d;
+    border:1px solid var(--line);
+    padding:13px 16px;
+    border-radius:15px;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+    font-size:12px;
+    font-weight:700;
+}
+
+.floating.one{
+    left:-35px;
+    top:70px;
+}
+
+.floating.two{
+    right:-30px;
+    bottom:60px;
+}
+
+.floating b{
+    color:var(--green2);
+}
+
+/* STATS */
+.stats{
+    max-width:1150px;
+    margin:-10px auto 80px;
+    padding:0 25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.stat{
+    padding:25px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    border-radius:18px;
+}
+
+.stat strong{
+    font-size:28px;
+    color:var(--green);
+}
+
+.stat span{
+    display:block;
+    margin-top:5px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* SECTION */
+section{
+    padding:80px 25px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:35px;
+}
+
+.eyebrow{
+    color:var(--green);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.section-head h2{
+    font-size:38px;
+    letter-spacing:-1.5px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:13px;
+    max-width:400px;
+    line-height:1.7;
+}
+
+/* CATEGORIES */
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.category{
+    min-height:150px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:25px;
+    background:linear-gradient(145deg,#122019,#0c1712);
+    transition:.35s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:translateY(-7px);
+    border-color:rgba(117,208,68,.35);
+}
+
+.category-icon{
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+.category h3{
+    font-size:16px;
+}
+
+.category p{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:6px;
+}
+
+/* PRODUCTS */
+.products-tools{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:240px;
+    padding:14px 17px;
+    border-radius:13px;
+    border:1px solid var(--line);
+    outline:none;
+    background:#0d1914;
+    color:white;
+}
+
+.filter{
+    padding:12px 18px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:#101d17;
+    color:#dbe4df;
+    cursor:pointer;
+}
+
+.filter.active{
+    background:var(--green);
+    color:#091009;
+    border-color:var(--green);
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.product{
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:#0e1a15;
+    transition:.35s;
+}
+
+.product:hover{
+    transform:translateY(-7px);
+    border-color:rgba(117,208,68,.3);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.product-image{
+    height:230px;
+    background:#18251f;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product:hover img{
+    transform:scale(1.06);
+}
+
+.product-body{
+    padding:18px;
+}
+
+.product-tag{
+    font-size:10px;
+    color:var(--green);
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.product h3{
+    margin-top:7px;
+    font-size:16px;
+}
+
+.product p{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+    margin:8px 0 15px;
+}
+
+.product-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.price{
+    font-weight:900;
+    color:white;
+}
+
+.more{
+    border:0;
+    background:var(--green);
+    color:#07100d;
+    width:35px;
+    height:35px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:900;
+}
+
+/* ABOUT */
+.about{
+    background:
+        linear-gradient(90deg,rgba(117,208,68,.06),transparent 60%);
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:42px;
+    letter-spacing:-2px;
+}
+
+.about-text{
+    color:var(--muted);
+    line-height:1.8;
+    margin-top:18px;
+    font-size:14px;
+}
+
+.features{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.feature{
+    padding:15px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.025);
+    font-size:12px;
+    font-weight:700;
+}
+
+.feature span{
+    color:var(--green);
+    margin-right:7px;
+}
+
+.about-card{
+    min-height:400px;
+    border-radius:30px;
+    padding:30px;
+    background:
+        linear-gradient(145deg,rgba(117,208,68,.12),rgba(255,255,255,.02));
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.about-card img{
+    max-width:100%;
+    max-height:350px;
+    object-fit:contain;
+    border-radius:20px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    border:1px solid rgba(117,208,68,.2);
+    border-radius:28px;
+    padding:60px 25px;
+    background:
+        radial-gradient(circle at center,rgba(117,208,68,.1),transparent 55%),
+        #0d1914;
+}
+
+.contact-box h2{
+    font-size:42px;
+}
+
+.contact-box p{
+    color:var(--muted);
+    margin:15px auto 30px;
+    max-width:550px;
+    line-height:1.7;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid var(--line);
+    padding:30px 25px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:min(500px,100%);
+    background:#102019;
+    border:1px solid var(--line);
+    border-radius:25px;
+    padding:25px;
+    position:relative;
+}
+
+.modal-content img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    border-radius:17px;
+}
+
+.modal-content h2{
+    margin-top:18px;
+}
+
+.modal-content p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+    margin-top:10px;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:18px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#07100d;
+    color:white;
+    cursor:pointer;
+    z-index:2;
+}
+
+/* MOBILE */
+@media(max-width:1000px){
+    nav{
+        display:none;
+    }
+
+    .hero-inner,
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero-product{
+        min-height:350px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .logo-text{
+        font-size:18px;
+    }
+
+    .nav-btn{
+        padding:10px 13px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons a{
+        text-align:center;
+    }
+
+    .floating{
+        display:none;
+    }
+
+    .product-grid,
+    .categories,
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
+
+    .about h2,
+    .contact-box h2{
+        font-size:32px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        display:block;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+
+        <a href="#" class="logo">
+            <div class="logo-icon">⚙️</div>
+            <div class="logo-text">
+                BGB
+                <span>BEST GRAND BUSINESS</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="#home">Bosh sahifa</a>
+            <a href="#categories">Kategoriyalar</a>
+            <a href="#products">Mahsulotlar</a>
+            <a href="#about">Biz haqimizda</a>
+            <a href="#contact">Aloqa</a>
+        </nav>
+
+        <a href="#contact" class="nav-btn">
+            Bog‘lanish →
+        </a>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-inner">
+
+        <div>
+
+            <div class="badge">
+                <i></i>
+                Qishloq xo‘jaligi ehtiyot qismlari
+            </div>
+
+            <h1>
+                Kombaynlaringiz uchun
+                <span>ishonchli</span> qismlar.
+            </h1>
+
+            <p>
+                BGB — qishloq xo‘jaligi texnikalari uchun
+                remenlar, filtrlar, yulduzchalar, segmentlar,
+                pichoqlar va boshqa ehtiyot qismlar.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#products" class="primary">
+                    Mahsulotlarni ko‘rish →
+                </a>
+
+                <a href="#contact" class="secondary">
+                    Biz bilan bog‘lanish
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="hero-product">
+
+            <div class="glow"></div>
+
+            <div class="hero-box">
+
+                <img src="./z1.jpg"
+                     alt="">
+
+                <div class="floating one">
+                    <b>PREMIUM</b><br>
+                    Sifatli ehtiyot qismlar
+                </div>
+
+                <div class="floating two">
+                    ✓ Ishonchli <b>BGB</b>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+
+    <div class="stat">
+        <strong>100+</strong>
+        <span>Mahsulot turlari</span>
+    </div>
+
+    <div class="stat">
+        <strong>24/7</strong>
+        <span>Mijozlar bilan aloqa</span>
+    </div>
+
+    <div class="stat">
+        <strong>100%</strong>
+        <span>Sifatga e'tibor</span>
+    </div>
+
+    <div class="stat">
+        <strong>BGB</strong>
+        <span>Best Grand Business</span>
+    </div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+<section id="categories">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+                <div class="eyebrow">Kategoriyalar</div>
+                <h2>Kerakli detalni toping</h2>
+            </div>
+
+            <p>
+                Qishloq xo‘jaligi texnikalari uchun
+                asosiy ehtiyot qismlar va sarf materiallari.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category" onclick="filterProducts('remen')">
+                <div class="category-icon">〰️</div>
+                <h3>Remenlar</h3>
+                <p>Turli xil uzatma remenlari</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('filtr')">
+                <div class="category-icon">⚙️</div>
+                <h3>Filtrlar</h3>
+                <p>Havo va yoqilg‘i filtrlari</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('detal')">
+                <div class="category-icon">🔩</div>
+                <h3>Mexanik detallar</h3>
+                <p>Yulduzcha va boshqa qismlar</p>
+            </div>
+
+            <div class="category" onclick="filterProducts('sarf')">
+                <div class="category-icon">🛠️</div>
+                <h3>Sarf materiallari</h3>
+                <p>Moy, antifriz va boshqa mahsulotlar</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+<section id="products">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+                <div class="eyebrow">Mahsulotlar</div>
+                <h2>Bizning mahsulotlar</h2>
+            </div>
+
+            <p>
+                Rasmlarni o‘zingizdagi mahsulot fotosuratlari
+                bilan almashtirishingiz mumkin.
+            </p>
+
+        </div>
+
+
+        <div class="products-tools">
+
+            <input
+                class="search"
+                id="search"
+                type="text"
+                placeholder="Mahsulot qidirish..."
+                onkeyup="searchProducts()"
+            >
+
+            <button class="filter active"
+                    onclick="filterProducts('all')">
+                Barchasi
+            </button>
+
+            <button class="filter"
+                    onclick="filterProducts('remen')">
+                Remen
+            </button>
+
+            <button class="filter"
+                    onclick="filterProducts('filtr')">
+                Filtr
+            </button>
+
+            <button class="filter"
+                    onclick="filterProducts('detal')">
+                Detallar
+            </button>
+
+            <button class="filter"
+                    onclick="filterProducts('sarf')">
+                Sarf
+            </button>
+
+        </div>
+
+
+        <div class="product-grid" id="productGrid">
+
+
+            <!-- 1 -->
+            <div class="product" data-category="remen"
+                 data-name="Tagex Remen">
+
+                <div class="product-image">
+                    <img src="./z1.jpg"
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Remen
+                    </div>
+
+                    <h3>Tagex uzatma remeni</h3>
+
+                    <p>
+                        Qishloq xo‘jaligi texnikalari uchun
+                        mustahkam va chidamli remen.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            Narx uchun bog‘laning
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'Tagex uzatma remeni',
+                                'z1.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 2 -->
+            <div class="product" data-category="filtr"
+                 data-name="Claas filtr">
+
+                <div class="product-image">
+                    <img src="./z6.jpg"
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Filtr
+                    </div>
+
+                    <h3>CLAAS original filtr</h3>
+
+                    <p>
+                        Yoqilg‘i va texnika tizimlari uchun
+                        sifatli filtr.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            Narx uchun bog‘laning
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'CLAAS original filtr',
+                                'z6.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3 -->
+            <div class="product" data-category="detal"
+                 data-name="Zvezdochka">
+
+                <div class="product-image">
+                    <img src="./z4.jpg"
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Detal
+                    </div>
+
+                    <h3>Yulduzcha</h3>
+
+                    <p>
+                        Texnika mexanizmlari uchun
+                        metall uzatma detali.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            Narx uchun bog‘laning
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'Yulduzcha',
+                                'z4.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 4 -->
+            <div class="product" data-category="detal"
+                 data-name="Segment">
+
+                <div class="product-image">
+                    <img src="./z12.jpg"
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Detal
+                    </div>
+
+                    <h3>Kesish segmentlari</h3>
+
+                    <p>
+                        O‘rim-yig‘im texnikalari uchun
+                        metall kesish qismlari.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            Narx uchun bog‘laning
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'Kesish segmentlari',
+                                'z12.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 5 -->
+            <div class="product" data-category="sarf"
+                 data-name="Antifreeze">
+
+                <div class="product-image">
+                    <img src="./z9.jpg" 
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Sarf materiali
+                    </div>
+
+                    <h3>Antifreeze BLUE</h3>
+
+                    <p>
+                        Texnika sovutish tizimi uchun
+                        antifriz.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            5 kg
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'Antifreeze BLUE',
+                                'z9.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 6 -->
+            <div class="product" data-category="sarf"
+                 data-name="Grease">
+
+                <div class="product-image">
+                    <img src="./z10.jpg"
+                         alt="Grease">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Moy
+                    </div>
+
+                    <h3>ALPET Progress R03</h3>
+
+                    <p>
+                        Avtomobil va texnika uchun
+                        universal surkov moyi.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            4 kg
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'ALPET Progress R03',
+                                'z10.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 7 -->
+            <div class="product" data-category="detal"
+                 data-name="Pichoq">
+
+                <div class="product-image">
+                    <img src="./z5.jpg"
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Detal
+                    </div>
+
+                    <h3>Kesish pichoqlari</h3>
+
+                    <p>
+                        Qishloq xo‘jaligi mashinalari
+                        uchun metall pichoqlar.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            Narx uchun bog‘laning
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'Kesish pichoqlari',
+                                'z5.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 8 -->
+            <div class="product" data-category="detal"
+                 data-name="Metal segment">
+
+                <div class="product-image">
+                    <img src="./z11.jpg"
+                         alt="">
+                </div>
+
+                <div class="product-body">
+
+                    <div class="product-tag">
+                        Detal
+                    </div>
+
+                    <h3>Metall segmentlar</h3>
+
+                    <p>
+                        O‘rim-yig‘im texnikalari uchun
+                        mustahkam metall qismlar.
+                    </p>
+
+                    <div class="product-bottom">
+                        <div class="price">
+                            Narx uchun bog‘laning
+                        </div>
+
+                        <button class="more"
+                                onclick="openModal(
+                                'Metall segmentlar',
+                                'z11.jpg'
+                                )">
+                            +
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    BGB haqida
+                </div>
+
+                <h2>
+                    Texnika ishlashi uchun
+                    kerakli detallar.
+                </h2>
+
+                <p class="about-text">
+                    BGB — Best Grand Business. Qishloq xo‘jaligi
+                    texnikalari uchun ehtiyot qismlar va
+                    sarf materiallarini taqdim etuvchi kompaniya
+                    sifatida zamonaviy va qulay xizmat ko‘rsatishga
+                    yo‘naltirilgan.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <span>✓</span>
+                        Sifatli mahsulotlar
+                    </div>
+
+                    <div class="feature">
+                        <span>✓</span>
+                        Keng assortiment
+                    </div>
+
+                    <div class="feature">
+                        <span>✓</span>
+                        Tezkor aloqa
+                    </div>
+
+                    <div class="feature">
+                        <span>✓</span>
+                        Professional xizmat
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <img src="./z4.jpg"
+                     alt="">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="eyebrow">
+                Aloqa
+            </div>
+
+            <h2>
+                Sizga kerakli detalni topamiz.
+            </h2>
+
+            <p>
+                Mahsulot nomi yoki texnika modelini yuboring.
+                Mutaxassislarimiz siz bilan bog‘lanadi.
+            </p>
+
+            <div class="contact-buttons">
+
+                <a class="primary"
+                   href="tel:+998 77 154 00 05">
+                    📞 Qo‘ng‘iroq qilish 
+                    tel:+998 77 154 00 05
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+            © 2026 BGB — Best Grand Business
+        </div>
+
+        <div>
+            Qishloq xo‘jaligi ehtiyot qismlari
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <button class="close"
+                onclick="closeModal()">×</button>
+
+        <img id="modalImage" src="" alt="">
+
+        <h2 id="modalTitle"></h2>
+
+        <p>
+            Mahsulot haqida batafsil ma'lumot,
+            mavjudligi va narxini bilish uchun
+            biz bilan bog‘laning.
+        </p>
+
+        <br>
+
+        <a href="#contact"
+           class="primary"
+           onclick="closeModal()">
+            Bog‘lanish →
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* MODAL */
+
+function openModal(title, image){
+
+    document.getElementById("modalTitle").innerText = title;
+
+    document.getElementById("modalImage").src = image;
+
+    document.getElementById("modal").classList.add("show");
+
+}
+
+function closeModal(){
+
+    document.getElementById("modal").classList.remove("show");
+
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeModal();
+    }
+
+});
+
+
+/* FILTER */
+
+function filterProducts(category){
+
+    const products =
+        document.querySelectorAll(".product");
+
+    const buttons =
+        document.querySelectorAll(".filter");
+
+    buttons.forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    products.forEach(product=>{
+
+        if(category === "all"){
+            product.style.display = "";
+        }
+
+        else if(product.dataset.category === category){
+            product.style.display = "";
+        }
+
+        else{
+            product.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* SEARCH */
+
+function searchProducts(){
+
+    const query =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const products =
+        document.querySelectorAll(".product");
+
+    products.forEach(product=>{
+
+        const name =
+            product.dataset.name.toLowerCase();
+
+        if(name.includes(query)){
+            product.style.display = "";
+        }
+        else{
+            product.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* ESC MODAL */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
